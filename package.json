@@ -1,0 +1,42 @@
+{
+  "name": "cocurriculares-new-backend",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
+  "dependencies": {
+    "@sailshq/connect-redis": "^3.2.1",
+    "@sailshq/lodash": "^3.10.3",
+    "@sailshq/socket.io-redis": "^5.2.0",
+    "async": "^2.6.2",
+    "bcrypt": "^3.0.4",
+    "cors": "^2.8.5",
+    "jwt-simple": "^0.5.5",
+    "moment": "^2.24.0",
+    "sails": "^1.1.0",
+    "sails-hook-orm": "^2.1.1",
+    "sails-hook-sockets": "^1.5.5",
+    "sails-postgresql": "^1.0.2"
+  },
+  "devDependencies": {
+    "@sailshq/eslint": "^4.19.3"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production node app.js",
+    "dev": "nodemon app.js --port=5000",
+    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
+    "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
+    "lint-fix": "eslint --ext .js,.vue --ignore-path .gitignore . --fix && echo '✔  Your .js files look good.'",
+    "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pablo384/cocurriculares-new-backend.git"
+  },
+  "author": "pablo384",
+  "license": "",
+  "engines": {
+    "node": "^10.15"
+  }
+}
