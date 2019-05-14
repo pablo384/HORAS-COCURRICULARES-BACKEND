@@ -1,3 +1,4 @@
+const moment = require('moment');
 module.exports = {
 
 
@@ -19,10 +20,14 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    // All done.
+    const list = await Conferencia.find({estado: 'A', horaInicio: { contains: moment().toISOString().split('T')[0] }})
+    .populate('carrera')
+    .populate('conferencista')
+    .populate('cuatrimestre');
+    // return exits.success({ info : true, data : list});
     return exits.success({
       'info': true,
-      'data': []
+      'data': list
     });
 
   }

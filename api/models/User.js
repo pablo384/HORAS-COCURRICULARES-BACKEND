@@ -24,7 +24,11 @@ module.exports = {
     },
     isAdmin: {
       type: 'boolean',
-      defaultsTo: true
+      defaultsTo: false
+    },
+    tipo: {
+      type: 'string',
+      defaultsTo: 'v'
     },
     password: {
       type: 'string',

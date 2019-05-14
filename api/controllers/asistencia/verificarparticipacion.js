@@ -26,6 +26,7 @@ module.exports = {
 
 
   fn: async function (inputs, exits) {
+    let msg = '';
     let persona = await Persona.findOne({or:[{ matricula: inputs.termPersona }, {carnet: inputs.termPersona}, {usuario: inputs.termPersona}]}).populate('carrera');
     if (persona && persona.esEstudiante) {
       const asistencias = await Asistencia.find(
@@ -34,10 +35,21 @@ module.exports = {
           sort: 'createdAt DESC'
         },
       );
-      const conferencia = await Conferencia.find({id: inputs.idConferencia});
+      const conferencia = await Conferencia.findOne({id: inputs.idConferencia});
       persona.asistencia = asistencias;
       if (asistencias.length === 0) {
         persona.entrada = true;
+        console.log('CONFF:::', conferencia);
+        
+        let horaInicio = moment(conferencia.horaInicio);
+        let horaActual = moment();
+        let duracion = moment.duration(conferencia.duracionEstimada);
+        let diff = horaActual.diff(horaInicio);
+        let calc = (diff*100)/duracion.asMilliseconds();
+        console.log('DIFERENCIA::: ', diff, 'DURACION:::', duracion.asMilliseconds(), 'CALCULO DE % ', calc);
+        if (calc >= conferencia.porcientoHorasValidas) {
+          msg = 'Has durado mucho tiempo fuera, las horas no seran aplicadas a tu perfil, pero puedes entrar si prefieres.';
+        }
       } else {
         persona.entrada = false;
         // for (let i = 0; i < asistencias.length; i++) {
@@ -49,8 +61,11 @@ module.exports = {
           let horaActual = moment();
           let duracion = moment.duration(conferencia.duracionEstimada);
           let diff = horaActual.diff(horaInicio);
-          console.log('DIFERENCIA::: ', diff, 'DURACION:::', duracion.asSeconds());
-          
+          let calc = (diff*100)/duracion.asMilliseconds();
+          console.log('DIFERENCIA::: ', diff, 'DURACION:::', duracion.asMilliseconds(), 'CALCULO DE % ', calc);
+          if (calc >= conferencia.porcientoHorasValidas) {
+            msg = 'Has durado mucho tiempo fuera, las horas no seran aplicadas a tu perfil, pero puedes entrar si prefieres.';
+          }
 
         }else {
 
@@ -61,7 +76,7 @@ module.exports = {
         // }
       }
       persona.idConferencia = inputs.idConferencia;
-      return exits.success({ info: true, data: persona });
+      return exits.success({ info: true, data: persona, message: msg });
     } else if (persona && !persona.esEstudiante) {
       return this.res.status(401).json({ info: false, message: 'Solo estudiantes pueden asistir.' });
     }
