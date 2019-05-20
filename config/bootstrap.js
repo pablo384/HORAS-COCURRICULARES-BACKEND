@@ -9,7 +9,7 @@
  * https://sailsjs.com/config/bootstrap
  */
 
-module.exports.bootstrap = async function() {
+module.exports.bootstrap = async function () {
 
   // By convention, this is a good place to set up fake data during development.
   //
@@ -23,13 +23,15 @@ module.exports.bootstrap = async function() {
       nick: 'admin',
       password: '1234',
       email: 'info@pablo384.com',
-      image: {
-        urlBase: 'https://i.imgur.com/',
-        id: 'o7BXJji',
-        type: '.jpg',
-        url: 'https://i.imgur.com/o7BXJji.jpg',
-        deletehash: 'mRdwqVSrEiAwkBy'
-      }
+      isAdmin: true,
+      tipo: 'admin'
+      // image: {
+      //   urlBase: 'https://i.imgur.com/',
+      //   id: 'o7BXJji',
+      //   type: '.jpg',
+      //   url: 'https://i.imgur.com/o7BXJji.jpg',
+      //   deletehash: 'mRdwqVSrEiAwkBy'
+      // }
     }).fetch();
   }
   //
