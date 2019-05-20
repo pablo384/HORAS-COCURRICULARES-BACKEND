@@ -18,9 +18,9 @@ module.exports.bootstrap = async function() {
   // // Set up fake development data (or if we already have some, avast)
   if (await User.count() <= 0) {
     await User.create({
-      name: 'Pablo',
-      surname: 'Reinoso',
-      nick: 'pablo384',
+      name: 'Admin',
+      surname: 'Admin',
+      nick: 'admin',
       password: '1234',
       email: 'info@pablo384.com',
       image: {
