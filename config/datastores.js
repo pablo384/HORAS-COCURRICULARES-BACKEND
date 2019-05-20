@@ -52,7 +52,7 @@ module.exports.datastores = {
     // url: 'mysql://user:password@host:port/database',
     // PostgresqlServer: {
     adapter: 'sails-postgresql',
-    url: 'postgresql://postgrest:@localhost:5432/sahc_db',
+    url: 'postgresql://postgrest:1984liry@localhost:5432/sahc_db',
     // host: 'localhost',
     // port: 5432,
     // user: 'pablo384', // 'postgres', //'postgres',//'postgres', //postgres// optional
