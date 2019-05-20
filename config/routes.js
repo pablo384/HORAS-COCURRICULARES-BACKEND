@@ -42,6 +42,9 @@ module.exports.routes = {
   // ASISTENCIA
   'GET /api/v1/asistencia/verificarParticipacion': { action: 'asistencia/verificarparticipacion' },
   'GET /api/v1/asistencia/ponche': { action: 'asistencia/ponche' },
+  // REPORTE
+  'GET /api/v1/reporte/reporte-estudiantes': { action: 'reporte/reporte-estudiantes' },
+  // 'GET /api/v1/asistencia/ponche': { action: 'asistencia/ponche' },
 
   // PERSONA
   'POST /api/v1/persona': { action: 'persona/create' },

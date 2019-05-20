@@ -42,6 +42,10 @@ module.exports = {
       type: 'number',
       defaultsTo: 0
     },
+    carrera: {
+      type: 'number',
+      required: true
+    },
     esEstudiante: {
       type: 'boolean',
     },
