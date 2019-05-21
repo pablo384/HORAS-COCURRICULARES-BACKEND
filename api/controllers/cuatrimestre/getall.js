@@ -27,8 +27,8 @@ module.exports = {
 
 
   fn: async function (inputs, exits) {
-    const inicio = moment(inputs.fechaInicio, 'YYYY-MM-DD').valueOf();
-    const fin = moment(inputs.fechaFin, 'YYYY-MM-DD').valueOf();
+    const inicio = moment(inputs.fechaInicio, 'YYYY-MM-DD').toISOString();
+    const fin = moment(inputs.fechaFin, 'YYYY-MM-DD').toISOString();
     let list = [];
     if (inputs.fechaInicio && inputs.fechaFin) {
       if (inputs.fechaInicio === inputs.fechaFin) {

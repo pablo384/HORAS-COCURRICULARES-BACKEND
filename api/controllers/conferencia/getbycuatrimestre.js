@@ -21,7 +21,7 @@ module.exports = {
 
 
   fn: async function (inputs, exits) {
-    const list = await Conferencia.find({estado: 'A', cuatrimestre: inputs.id});
+    const list = await Conferencia.find({estado: 'A', cuatrimestre: inputs.id}).populate('carrera');
     return exits.success({ info : true, data : list});
 
   }

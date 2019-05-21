@@ -20,11 +20,11 @@ module.exports = {
       type: 'string'
     },
     fechaInicio: {
-      type: 'number',
+      type: 'string',
       required: true,
     },
     fechaFin: {
-      type: 'number',
+      type: 'string',
       required: true,
     },
     estado: {

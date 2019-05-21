@@ -42,8 +42,8 @@ module.exports = {
       console.log('conflicto:', unique);
       return this.res.status(401).json({ info : false, message : 'Titulo de esta Cuatrimestre ya existe'});
     }
-    inputs.fechaInicio = moment(inputs.fechaInicio, 'YYYY-MM-DD').valueOf();
-    inputs.fechaFin = moment(inputs.fechaFin, 'YYYY-MM-DD').valueOf();
+    inputs.fechaInicio = moment(inputs.fechaInicio, 'YYYY-MM-DD').toISOString();
+    inputs.fechaFin = moment(inputs.fechaFin, 'YYYY-MM-DD').toISOString();
     const objVerbo = await Cuatrimestre.update({id: inputs.id},inputs).fetch();
     if (objVerbo.length !== 0) {
       return exits.success({ info : true, message : 'Cuatrimestre actualizado correctamente.', data:objVerbo});
