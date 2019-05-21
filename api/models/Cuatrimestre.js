@@ -14,8 +14,7 @@ module.exports = {
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     titulo: {
       type: 'string',
-      required: true,
-      unique: true
+      required: true
     },
     descripcion: {
       type: 'string'

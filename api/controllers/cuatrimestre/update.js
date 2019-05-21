@@ -38,7 +38,8 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     const unique = await Cuatrimestre.find({titulo: inputs.titulo, estado: 'A'});
-    if (unique.length > 0) {
+    if (unique.length > 1) {
+      console.log('conflicto:', unique);
       return this.res.status(401).json({ info : false, message : 'Titulo de esta Cuatrimestre ya existe'});
     }
     inputs.fechaInicio = moment(inputs.fechaInicio, 'YYYY-MM-DD').valueOf();
