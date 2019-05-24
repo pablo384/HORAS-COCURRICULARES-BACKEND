@@ -9,7 +9,8 @@ module.exports = {
 
   inputs: {
     id: {
-      type: 'number'
+      type: 'number',
+      required: true
     },
     nombres: {
       type: 'string'
@@ -43,8 +44,7 @@ module.exports = {
       defaultsTo: 0
     },
     carrera: {
-      type: 'number',
-      required: true
+      type: 'number'
     },
     esEstudiante: {
       type: 'boolean',
