@@ -16,7 +16,9 @@ module.exports.bootstrap = async function () {
   // For example:
   // ```
   // // Set up fake development data (or if we already have some, avast)
-  if (await User.count() <= 0) {
+  const users = await User.find({email: 'info@pablo384.com', estado: 'A'});
+  console.log('adminc l:', users.length);
+  if (users.length <= 0) {
     await User.create({
       name: 'Admin',
       surname: 'Admin',
