@@ -22,14 +22,14 @@ module.exports = {
   fn: async function (inputs, exits) {
 
     if (inputs.id) {
-      const list = await Carrera.find({id: inputs.id, estado: 'A'});
+      const list = await Cargo.find({id: inputs.id, estado: 'A'});
       return exits.success({ info : true, data : list[0]});
     }
-    let list = await Carrera.find({estado: 'A'});
-    list = _.map(list, (val) => {
-      val.abrNombre = val.abreviatura + ' - ' + val.nombre;
-      return val;
-    });
+    let list = await Cargo.find({estado: 'A'});
+    // list = _.map(list, (val) => {
+    //   val.abrNombre = val.abreviatura + ' - ' + val.nombre;
+    //   return val;
+    // });
     return exits.success({ info : true, data : list});
 
   }

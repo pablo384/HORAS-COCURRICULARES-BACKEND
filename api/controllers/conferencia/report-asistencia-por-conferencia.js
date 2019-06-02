@@ -22,7 +22,7 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     const listCarreras = await Carrera.find();
-    const confe = await Conferencia.findOne({ id: inputs.id });
+    const confe = await Conferencia.findOne({ id: inputs.id }).populate('conferencista');
     const listAsistencia = await Asistencia.find({ estado: 'A', conferencia: inputs.id }).populate('estudiante');
     const tcarreras = [];
     const agrupado = _.groupBy(listAsistencia, 'estudiante.matricula');

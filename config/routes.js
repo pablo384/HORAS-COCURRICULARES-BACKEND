@@ -28,6 +28,12 @@ module.exports.routes = {
   'PATCH /api/v1/carrera': { action: 'carrera/update' },
   'DELETE /api/v1/carrera': { action: 'carrera/delete' },
   'GET /api/v1/carrera': { action: 'carrera/getall' },
+  // CARGOS
+  'POST /api/v1/cargo': { action: 'cargo/create' },
+  'PATCH /api/v1/cargo': { action: 'cargo/update' },
+  'DELETE /api/v1/cargo': { action: 'cargo/delete' },
+  'GET /api/v1/cargo': { action: 'cargo/getall' },
+
   // CONFERENCIA 
   'GET /api/v1/conferencia/getbycuatrimestre': { action: 'conferencia/getbycuatrimestre' },
   'GET /api/v1/conferencia/para_hoy': { action: 'conferencia/gettoday' },

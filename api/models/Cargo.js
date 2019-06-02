@@ -1,5 +1,5 @@
 /**
- * Persona.js
+ * Carrera.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -12,54 +12,26 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    nombres: {
+    nombre: {
       type: 'string',
-      required: true
+      required: true,
+      unique: true
     },
-    apellidos: {
-      type: 'string',
-      required: true
-    },
-    direccion: {
-      type: 'string',
-      required: true
-    },
-    cedula: {
-      type: 'string',
-    },
-    matricula: {
-      type: 'string',
-    },
-    carnet: {
-      type: 'string',
-    },
-    usuario: {
-      type: 'string',
-    },
-    telefono: {
-      type: 'string',
-    },
-    email: {
-      type: 'string',
-    },
-    // cargo: {
+    // abreviatura: {
     //   type: 'string',
+    //   required: true,
+    //   unique: true
+
     // },
-    trabajo: {
-      type: 'string',
-    },
-    horasAcumuladas: {
-      type: 'number',
-      defaultsTo: 0
-    },
-    esEstudiante: {
-      type: 'boolean',
-      defaultsTo: true
-    },
+    // horasRequeridas: {
+    //   type: 'number',
+    //   required: true
+    // },
     estado: {
       type: 'string',
       defaultsTo: 'A'
     },
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
@@ -68,20 +40,14 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    carrera: {
-      model: 'carrera',
+    personas: {
+      collection: 'persona',
+      via: 'cargo'
     },
-    cargo: {
-      model: 'cargo',
-    },
-    asistencias: {
-      collection: 'asistencia',
-      via: 'estudiante'
-    },
-    conferencias: {
-      collection: 'conferencia',
-      via: 'conferencista'
-    }
+    // carreras: {
+    //   collection: 'conferencia',
+    //   via: 'carrera'
+    // }
   },
 
 };

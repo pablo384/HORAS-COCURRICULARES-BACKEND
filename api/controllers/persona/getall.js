@@ -24,7 +24,7 @@ module.exports = {
     if (inputs.esEstudiante) {
       list = await Persona.find({esEstudiante: true}).populate('carrera');
     }else {
-      list = await Persona.find({esEstudiante: false});
+      list = await Persona.find({esEstudiante: false}).populate('cargo');
     }
     return exits.success({ info : true, data : list});
   }
