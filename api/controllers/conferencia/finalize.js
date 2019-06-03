@@ -64,7 +64,7 @@ module.exports = {
       let asistenciasDeEstaActividad = await Asistencia.find({ conferencia: conf.id, estudiante: estudiante.id });
       console.log('LONGITUD ASISTENCIA:::', asistenciasDeEstaActividad.length, ':::ARR ASISTENCIA:::');
       // console.log(':::ARR ASISTENCIA:::', asistenciasDeEstaActividad);
-      
+
       if (asistenciasDeEstaActividad.length >= 1) {
         let durMili = 0;
         for (let e = 0; e < asistenciasDeEstaActividad.length; e++) {

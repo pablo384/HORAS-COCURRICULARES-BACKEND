@@ -60,4 +60,5 @@ module.exports.routes = {
   'GET /api/v1/persona/getbyconferencia': { action: 'persona/getbyconferencia' },
   'GET /api/v1/persona/byId': { action: 'persona/getbyid' },
   'GET /api/v1/persona/getconferenciasparticipadas': { action: 'persona/getconferenciasparticipadas' },
+  'GET /api/v1/persona/reporentradasalida': { action: 'persona/reporentradasalida' },
 };
