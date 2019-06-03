@@ -40,6 +40,10 @@ module.exports = {
     cedula: {
       type: 'string',
     },
+    isAdmin: {
+      type: 'boolean',
+      defaultsTo: false
+    },
     estado:{
       type: 'string',
       defaultsTo:'A'

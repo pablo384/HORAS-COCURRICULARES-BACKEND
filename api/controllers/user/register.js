@@ -24,6 +24,10 @@ module.exports = {
       type: 'string',
       required: true
     },
+    isAdmin: {
+      type: 'boolean',
+      defaultsTo: false
+    },
     email: {
       type: 'string',
       required: true
