@@ -33,6 +33,18 @@ module.exports = {
       }
       return val[0].estudiante;
     });
+    for (let i = 0; i < list.length; i++) {
+      let estudiante = list[i];
+      const asisttenciasEstudiante = await Asistencia.find({estado:'A', estudiante: estudiante.id});
+      let dentro = false;
+      for (let e = 0; e < asisttenciasEstudiante.length; e++) {
+        const asis = asisttenciasEstudiante[e];
+        if (!asis.horaFin || asis.horaFin === '' || asis.horaFin.length < 2) {
+          dentro = true;
+        }
+      }
+      list[i].dentro = dentro;
+    }
     return exits.success({ info : true, data : list, aCarreras: tcarreras});
 
   }
